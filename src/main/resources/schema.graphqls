@@ -13,13 +13,21 @@ type Author {
     posts: [Post]!
 }
 
+#input AuthorInput {
+#
+#}
+
 # Root Query for the application
 type Query {
     recentPosts(count: Int, offset: Int) : [Post]!
-    authors: [Author]
+    authors(filter: AuthorFilter): [Author]
+}
+
+input AuthorFilter {
+    name_contains: String
 }
 
 #Mutation
-type Mutation {
-    writePost(title: String!, text: String!, category: String): Post!
-}
+#type Mutation {
+#    writePost(title: String!, text: String!, category: String): Post!
+#}
